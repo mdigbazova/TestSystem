@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5daf4b8-c65b-4108-87c1-8161a0530b98" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_sys/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_sys/testing_sys/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/testing_sys/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_sys/testsys/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/testsys/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing_sys/testsys/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/testsys/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_sys/testsys/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/testsys/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +15,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testing_sys/testing_sys/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
+            <state relative-caret-position="811">
+              <caret line="90" column="1" lean-forward="true" selection-start-line="90" selection-start-column="1" selection-end-line="90" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -41,8 +36,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/testing_sys/testsys/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="2" column="58" selection-start-line="2" selection-start-column="58" selection-end-line="2" selection-end-column="58" />
+            <state relative-caret-position="181">
+              <caret line="67" column="72" selection-start-line="67" selection-start-column="72" selection-end-line="67" selection-end-column="72" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -93,8 +91,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="813" />
-    <option name="width" value="1107" />
+    <option name="x" value="662" />
+    <option name="y" value="2" />
+    <option name="width" value="1260" />
     <option name="height" value="1055" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -164,9 +163,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="813" y="0" width="1107" height="1055" extended-state="0" />
+    <frame x="662" y="2" width="1260" height="1055" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19270346" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1685761" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -207,9 +207,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testing_sys/testsys/serializers.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/testing_sys/testsys/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
@@ -227,17 +224,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/testing_sys/testsys/serializers.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/testing_sys/testing_sys/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
+        <state relative-caret-position="811">
+          <caret line="90" column="1" lean-forward="true" selection-start-line="90" selection-start-column="1" selection-end-line="90" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testing_sys/testsys/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="58" selection-start-line="2" selection-start-column="58" selection-end-line="2" selection-end-column="58" />
+        <state relative-caret-position="181">
+          <caret line="67" column="72" selection-start-line="67" selection-start-column="72" selection-end-line="67" selection-end-column="72" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
