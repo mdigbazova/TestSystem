@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     'phonenumber_field',
     'phonenumbers',
+    'model_utils',
 
     'testsys',
 
