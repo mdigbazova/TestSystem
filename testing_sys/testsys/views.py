@@ -1,8 +1,11 @@
 from django.shortcuts import render
+from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from . models import AlertsBody
-from . serializers import AlertsBodySerializer
+from rest_framework import status, permissions
+
+from . models import AlertsBody, Account, Agent
+from . serializers import AlertsBodySerializer, AccountSerializer, AgentSerializer
 
 #from rest_framework import views
 #from .serializers import UserCreateSerializer
@@ -52,13 +55,41 @@ from . serializers import AlertsBodySerializer
 
 #-----------------
 
-class AlertBodiesList(APIView):
+class AlertsBodiesList(APIView):
 
-    @staticmethod
+    #@staticmethod
     def get(self, request):
-        alert_bodies = AlertsBody.objects.all()
-        serializer = AlertsBodySerializer(alert_bodies, many=True)
+        alerts_bodies = AlertsBody.objects.all()
+        serializer = AlertsBodySerializer(alerts_bodies, many=True) # serializes!!!
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    #@staticmethod
+    def post(self, request):
+        serializer = AlertsBodySerializer(data=request.data) # data=request.data -> deserializes!!!
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.error_messages, status=status.HTTP_400_BAD_REQUEST)
+
+
+class AccountsList(APIView):
+
+    #@staticmethod
+    def get(self, request):
+        accounts = Account.objects.all()
+        serializer = AccountSerializer(accounts, many=True)
         return Response(serializer.data)
 
+
+
+
+class AgentsList(APIView):
+
+    #@staticmethod
+    def get(self, request):
+        agents = Agent.objects.all()
+        serializer = AgentSerializer(agents, many=True)
+        return Response(serializer.data)
 
 
