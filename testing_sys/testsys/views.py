@@ -71,6 +71,52 @@ class AlertsBodiesList(APIView):
         return Response(serializer.error_messages, status=status.HTTP_400_BAD_REQUEST)
 
 
+class AlertsBodyDetails(APIView):
+
+    def get_object(self, pk):
+        try:
+            alerts_body = AlertsBody.objects.get(pk=pk)
+            return alerts_body
+        except AlertsBody.DoesNotExist:
+            raise Http404
+
+    def get(self, request, alerts_body_id):
+        alerts_body = self.get_object(pk=alerts_body_id)
+        serializer = AlertsBodySerializer(alerts_body)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class AccountDetails(APIView):
+
+    def get_object(self, pk):
+        try:
+            account = Account.objects.get(pk=pk)
+            return account
+        except Account.DoesNotExist:
+            raise Http404
+
+    def get(self, request, account_id):
+        account = self.get_object (pk=account_id)
+        serializer = AccountSerializer(account)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class AgentDetails(APIView):
+
+    def get_object(self, pk):
+        try:
+            agent = Agent.objects.get(pk=pk)
+            return agent
+        except Agent.DoesNotExist:
+            raise Http404
+
+    def get(self, request, agent_id):
+        agent = self.get_object (pk=agent_id)
+        serializer = AgentSerializer(agent)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+
 class AccountsList(APIView):
 
     def get(self, request):

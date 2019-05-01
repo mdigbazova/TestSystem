@@ -7,7 +7,7 @@ from . models import AlertsBody, Account, Agent
 class AlertsBodySerializer(serializers.ModelSerializer):
     class Meta:
         model = AlertsBody
-        fields = ('id', 'createdat', 'alerttimestamp', 'alertstate', 'external_service_id', 'rm_region', 'account', 'agent')
+        fields = ('id', 'alert_id', 'createdat', 'alerttimestamp', 'alertstate', 'external_service_id', 'rm_region', 'account', 'agent')
 
 
 class AccountSerializer(serializers.ModelSerializer):
