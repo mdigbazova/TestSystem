@@ -88,6 +88,12 @@ class AgentStateType (Enum):
     INSTALLING_COMPETETIVE_REMOVER = '17'
 
 
+class AllChoices:
+
+    def choices(em):
+        return [(e.value, e.name) for e in em]
+
+
 class Account (models.Model):
     accountid = models.CharField (max_length=50)
     RemoteAccountID = models.CharField (max_length=50)
@@ -103,8 +109,10 @@ class Agent (models.Model):
     foreigndeviceguid = models.CharField (max_length=50)  # "aa862342d9cbcfd956f74ac4c6e77ed7"
     policyid = models.CharField (max_length=10)  # "3610"
     agentversion = models.CharField (max_length=20)  # "29.0.0.1009"
-    agentstate = models.CharField (max_length=1, choices=[(tag, tag.value) for tag in AgentStateType])  # "1"
-    agentstatename = models.CharField (max_length=50, choices=[(tag, tag.value) for tag in AgentStateType])  # "idle"
+    #agentstate = models.CharField (max_length=1, choices=[(tag, tag.value) for tag in AgentStateType])  # "1"
+    #agentstate = models.CharField(max_length=1, choices=AllChoices.choices(AgentStateType))
+    #agentstatename = models.CharField (max_length=50, choices=[(tag, tag.value) for tag in AgentStateType])  # "idle"
+    agentstatename = models.CharField (max_length=1, choices=AllChoices.choices(AgentStateType))
     currentdefinitionsversion = models.CharField (max_length=10, null=True, blank=True, default="")  # ""
     currentdefinitionsdate = models.DateField ()  # "2016-08-08 11:35:52"
     sdkproductversion = models.CharField (max_length=20)  # "5.3.28.761"
@@ -117,11 +125,11 @@ class AlertsBody (models.Model):
     createdat = models.DateField ()  # "2016-08-06 07:45:24"
     alert_id = models.CharField (max_length=50)  # "e68b323d-8ef4-4f77-a7be-d23c0932b10b"
     alerttimestamp = models.DateField ()  # "2016-08-06 07:45:24",
-    alertstate = models.CharField (max_length=1, choices=[(tag, tag.value) for tag in AlertState])
-    external_service_id = models.CharField (max_length=1, choices=[(tag, tag.value) for tag in ExternalService])
-    rm_region = models.CharField (max_length=15)  # "rm_region": "hdog_aus",
-    account = models.ForeignKey (Account, on_delete=models.CASCADE)
-    agent = models.ForeignKey (Agent, on_delete=models.CASCADE)
+    alertstate = models.CharField (max_length=1, choices=AllChoices.choices(AlertState))
+    external_service_id = models.CharField (max_length=1, choices=AllChoices.choices(ExternalService))
+    rm_region = models.CharField(max_length=15)  # "rm_region": "hdog_aus",
+    account = models.ForeignKey(Account, on_delete=models.CASCADE)
+    agent = models.ForeignKey(Agent, on_delete=models.CASCADE)
 
     # external_service_agent_id=
     # nullable integer, the agent ID this alert is associated with in the MAX DB. Will be null if alert type is not agent specific.

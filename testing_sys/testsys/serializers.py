@@ -19,5 +19,5 @@ class AccountSerializer(serializers.ModelSerializer):
 class AgentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Agent
-        fields = ('id', 'agentid', 'foreigndeviceguid', 'policyid', 'agentversion', 'agentstate', 'agentstatename', 'currentdefinitionsdate', 'sdkproductversion')
+        fields = ('id', 'agentid', 'foreigndeviceguid', 'policyid', 'agentversion',  'agentstatename', 'currentdefinitionsdate', 'sdkproductversion')
 
