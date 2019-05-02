@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d5daf4b8-c65b-4108-87c1-8161a0530b98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/testing_sys/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing_sys/testsys/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/testsys/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing_sys/testsys/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/testsys/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing_sys/testsys/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/testsys/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing_sys/testsys/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/testsys/urls.py" afterDir="false" />
@@ -25,11 +26,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/testing_sys/testsys/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" column="55" selection-start-line="1" selection-start-column="55" selection-end-line="1" selection-end-column="55" />
+            <state relative-caret-position="210">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -40,8 +41,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testing_sys/testsys/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+            <state relative-caret-position="168">
+              <caret line="8" column="45" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="45" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
@@ -50,22 +51,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testing_sys/testing_sys/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="18" />
-              <folding>
-                <element signature="e#635#667#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testing_sys/testsys/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1365">
-              <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+            <state relative-caret-position="1533">
+              <caret line="71" column="38" selection-start-line="71" selection-start-column="38" selection-end-line="71" selection-end-column="38" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -73,11 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testing_sys/testsys/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="832">
-              <caret line="38" column="53" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
+            <state relative-caret-position="126">
+              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="23" />
               <folding>
                 <element signature="e#56#94#0" expanded="true" />
               </folding>
@@ -88,11 +77,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testing_sys/testsys/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="677">
-              <caret line="147" column="96" selection-start-line="147" selection-start-column="88" selection-end-line="147" selection-end-column="96" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="152">
+              <caret line="14" column="37" lean-forward="true" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -123,13 +109,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/testing_sys/testing_sys/urls.py" />
-        <option value="$PROJECT_DIR$/testing_sys/testsys/admin.py" />
         <option value="$PROJECT_DIR$/testing_sys/testing_sys/settings.py" />
         <option value="$PROJECT_DIR$/testing_sys/testsys/forms.py" />
-        <option value="$PROJECT_DIR$/testing_sys/testsys/views.py" />
-        <option value="$PROJECT_DIR$/testing_sys/testsys/urls.py" />
-        <option value="$PROJECT_DIR$/testing_sys/testsys/models.py" />
         <option value="$PROJECT_DIR$/testing_sys/testsys/serializers.py" />
+        <option value="$PROJECT_DIR$/testing_sys/testsys/urls.py" />
+        <option value="$PROJECT_DIR$/testing_sys/testsys/views.py" />
+        <option value="$PROJECT_DIR$/testing_sys/testsys/models.py" />
+        <option value="$PROJECT_DIR$/testing_sys/testsys/admin.py" />
       </list>
     </option>
   </component>
@@ -256,16 +242,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testing_sys/testsys/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="55" selection-start-line="1" selection-start-column="55" selection-end-line="1" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testing_sys/testing_sys/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -278,8 +254,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/testing_sys/testsys/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+        <state relative-caret-position="168">
+          <caret line="8" column="45" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="45" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
           </folding>
@@ -288,30 +264,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/testing_sys/testsys/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1365">
-          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+        <state relative-caret-position="1533">
+          <caret line="71" column="38" selection-start-line="71" selection-start-column="38" selection-end-line="71" selection-end-column="38" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testing_sys/testsys/models.py">
+    <entry file="file://$PROJECT_DIR$/testing_sys/testsys/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="677">
-          <caret line="147" column="96" selection-start-line="147" selection-start-column="88" selection-end-line="147" selection-end-column="96" />
+        <state relative-caret-position="126">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="23" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#56#94#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testing_sys/testsys/serializers.py">
+    <entry file="file://$PROJECT_DIR$/testing_sys/testsys/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="832">
-          <caret line="38" column="53" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
+        <state relative-caret-position="152">
+          <caret line="14" column="37" lean-forward="true" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testing_sys/testsys/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
           <folding>
-            <element signature="e#56#94#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>

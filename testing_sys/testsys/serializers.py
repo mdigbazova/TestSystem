@@ -1,7 +1,7 @@
 #from rest_framework.serializers import ModelSerializer
 from rest_framework import serializers
 
-from . models import AlertsBody, Account, Agent, Comment
+from . models import AlertsBody, Account, Agent, Comment, Profile
 
 
 class CommentSerializer(serializers.ModelSerializer):
@@ -38,4 +38,12 @@ class AgentSerializer(serializers.ModelSerializer):
             'currentdefinitionsdate': 'Current Definitions Date',
             'sdkproductversion': 'SDK Product Version'
         }
+
+
+class ProfileSerializer(serializers.ModelSerializer):
+    comments = CommentSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Profile
+        fields = ('phone_number', 'profession', 'user')
 
