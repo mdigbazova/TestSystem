@@ -61,6 +61,7 @@ class AgentsList(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+
 class CommentsList(APIView):
 
     def get(self, request):
@@ -69,9 +70,9 @@ class CommentsList(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
-        serializer = CommentSerializer (data=request.data)  # data=request.data -> deserializes!!!
+        serializer = CommentSerializer(data=request.data)  # data=request.data -> deserializes!!!
 
-        if serializer.is_valid ():
+        if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -168,6 +169,20 @@ class AgentDetails(APIView):
         agent = self.get_object(pk=agent_id)
         agent.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+
+class CommentDetails(APIView):
+
+    def get_object(self, pk):
+        try:
+            comment = Comment.objects.get(pk=pk)
+            return comment
+        except Comment.DoesNotExist:
+            raise Http404
+
+    def get(self, request, alerts_body_id, comment_id): #pk = AlertBody pk
+        full_request_url = request.build_absolute_uri()
 
 
 #------------------------

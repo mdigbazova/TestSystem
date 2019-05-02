@@ -144,9 +144,9 @@ class Comment(models.Model):
     author = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='authors')
     comment = models.TextField()
     alerts_body = models.ForeignKey(AlertsBody, on_delete=models.CASCADE, related_name='comments')
-    likes = models.PositiveIntegerField()
-    dislikes = models.PositiveIntegerField()
+    likes = models.PositiveIntegerField(null=True, blank=True)
+    dislikes = models.PositiveIntegerField(null=True, blank=True)
 
     def __str__(self):
-        return f'Author = {self.Profile}; Comment = {self.comment[:20]}...'
+        return f'Author = {self.author}; Comment = {self.comment[:30]}...'
 
