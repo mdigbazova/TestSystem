@@ -28,16 +28,7 @@ class AgentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Agent
         fields = ('id', 'agentid', 'foreigndeviceguid', 'policyid', 'agentversion',  'agentstatename', 'currentdefinitionsdate', 'sdkproductversion')
-        labels = {
-            'id': 'ID',
-            'agentid': 'Agent ID',
-            'foreigndeviceguid': 'GUID of Foreign Device',
-            'policyid': 'Policy ID',
-            'agentversion': 'Agent Version',
-            'agentstatename': 'Name of Agent State',
-            'currentdefinitionsdate': 'Current Definitions Date',
-            'sdkproductversion': 'SDK Product Version'
-        }
+
 
 
 class ProfileSerializer(serializers.ModelSerializer):

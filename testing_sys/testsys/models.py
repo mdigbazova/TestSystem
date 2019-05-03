@@ -31,25 +31,24 @@ class Profile (models.Model):
         return f'{self.user}'
 
 
-#Basically we are hooking the create_user_profile and save_user_profile methods to the User model,
-# whenever a save event occurs. This kind of signal is called post_save.
-@receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Profile.objects.create(user=instance)
-
-@receiver(post_save, sender=User)
-def save_user_profile(sender, instance, **kwargs):
-    instance.profile.save()
-
-
-def update_profile(request, user_id):
-    user = User.objects.get(pk=user_id)
-    user.profile.location = request.location
-    user.profile.birth_date = request.birth_date
-    user.profile.profession = request.profession
-
-    user.save()
+# #Basically we are hooking the create_user_profile and save_user_profile methods to the User model,
+# # whenever a save event occurs. This kind of signal is called post_save.
+# @receiver(post_save, sender=User)
+# def create_user_profile(sender, instance, created, **kwargs):
+#     if created:
+#         Profile.objects.create(user=instance)
+# 
+# @receiver(post_save, sender=User)
+# def save_user_profile(sender, instance, **kwargs):
+#     instance.profile.save()
+# 
+# 
+# def update_profile(request, user_id):
+#     user = User.objects.get(pk=user_id)
+#     user.profile.phone_number = request.phone_number
+#     user.profile.profession = request.profession
+# 
+#     user.save()
 
 #----------------------
 
@@ -93,10 +92,10 @@ class AllChoices:
 
 
 class Account (models.Model):
-    accountid = models.CharField (max_length=50) # "132"
-    RemoteAccountID = models.CharField (max_length=50) # "1344"
-    RemoteWebServiceHost = models.CharField (max_length=100)  # "breck-alerts-api-au.system-monitor.com"
-    remoteserviceid = models.CharField (max_length=50) #
+    accountid = models.CharField (max_length=50, verbose_name="Account ID") # "132"
+    RemoteAccountID = models.CharField (max_length=50, verbose_name="Remote Account ID") # "1344"
+    RemoteWebServiceHost = models.CharField (max_length=100, verbose_name="Remote WebService Host")  # "breck-alerts-api-au.system-monitor.com"
+    remoteserviceid = models.CharField (max_length=50, verbose_name="Remote Service ID") #
 
     def __str__(self):
         return f'Account ID = {self.accountid}, Remote Account ID = {self.RemoteAccountID}, Remote WebService Host = {self.RemoteWebServiceHost}'
@@ -104,32 +103,35 @@ class Account (models.Model):
 
 
 class Agent (models.Model):
-    agentid = models.CharField (max_length=10)  # "35538"
-    foreigndeviceguid = models.CharField (max_length=80)  # "aa862342d9cbcfd956f74ac4c6e77ed7"
-    policyid = models.CharField (max_length=10)  # "3610"
-    agentversion = models.CharField (max_length=20)  # "29.0.0.1009"
-    #agentstate = models.CharField (max_length=1, choices=[(tag, tag.value) for tag in AgentStateType])  # "1"
-    #agentstate = models.CharField(max_length=1, choices=AllChoices.choices(AgentStateType))
-    #agentstatename = models.CharField (max_length=50, choices=[(tag, tag.value) for tag in AgentStateType])  # "idle"
-    agentstatename = models.CharField (max_length=1, choices=AllChoices.choices(AgentStateType))
-    currentdefinitionsversion = models.CharField (max_length=10, null=True, blank=True, default="")  # ""
-    currentdefinitionsdate = models.DateField ()  # "2016-08-08 11:35:52"
-    sdkproductversion = models.CharField (max_length=20)  # "5.3.28.761"
+    agentid = models.CharField (max_length=10, verbose_name="Agent ID")  # "35538"
+    foreigndeviceguid = models.CharField (max_length=80, verbose_name="Foreign Device GUID")  # "aa862342d9cbcfd956f74ac4c6e77ed7"
+    policyid = models.CharField (max_length=10, verbose_name="Policy ID")  # "3610"
+    agentversion = models.CharField (max_length=20, verbose_name="Agent Version")  # "29.0.0.1009"
+    #agentstate = models.CharField (max_length=1, choices=[(tag.name, tag.value) for tag in AgentStateType], verbose_name="")  # "1"
+    #agentstate = models.CharField(max_length=1, choices=AllChoices.choices(AgentStateType), verbose_name="")
+    #agentstatename = models.CharField (max_length=50, choices=[(tag.name, tag.value) for tag in AgentStateType], verbose_name="")  # "idle"
+    agentstatename = models.CharField (max_length=1, choices=AllChoices.choices(AgentStateType), verbose_name="Agent State Name")
+    currentdefinitionsversion = models.CharField (max_length=10, null=True, blank=True, default="", verbose_name="Current Definitions Version")  # ""
+    currentdefinitionsdate = models.DateTimeField(verbose_name="Current Definitions Date")  # "2016-08-08 11:35:52" DateField
+    sdkproductversion = models.CharField(max_length=20, verbose_name="SDK Product Version")  # "5.3.28.761"
 
     def __str__(self):
         return f'Agent ID = {self.agentid}, Agent Version = {self.agentversion}, Agent State Name = {self.agentstatename}'
 
+# def __str__(self):
+# return f"{self.name} {self.get_color_display()}"
+
 
 
 class AlertsBody (models.Model):
-    createdat = models.DateField ()  # "2016-08-06 07:45:24"
-    alert_id = models.CharField (max_length=80)  # "e68b323d-8ef4-4f77-a7be-d23c0932b10b"
-    alerttimestamp = models.DateField ()  # "2016-08-06 07:45:24",
-    alertstate = models.CharField (max_length=1, choices=AllChoices.choices(AlertState))
-    external_service_id = models.CharField (max_length=1, choices=AllChoices.choices(ExternalService))
-    rm_region = models.CharField(max_length=15)  # "rm_region": "hdog_aus",
-    account = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='account')
-    agent = models.ForeignKey(Agent, on_delete=models.CASCADE, related_name='agent')
+    createdat = models.DateTimeField(verbose_name="Creation Date")  # "2016-08-06 07:45:24" DateField
+    alert_id = models.CharField (max_length=80, verbose_name="Alert ID")  # "e68b323d-8ef4-4f77-a7be-d23c0932b10b"
+    alerttimestamp = models.DateTimeField(verbose_name="Alert Timestamp")  # "2016-08-06 07:45:24",DateField
+    alertstate = models.CharField (max_length=1, choices=AllChoices.choices(AlertState), verbose_name="Alert State")
+    external_service_id = models.CharField (max_length=1, choices=AllChoices.choices(ExternalService), verbose_name="External Service ID")
+    rm_region = models.CharField(max_length=15, verbose_name="Remote Region")  # "rm_region": "hdog_aus",
+    account = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='account', verbose_name="Object Account")
+    agent = models.ForeignKey(Agent, on_delete=models.CASCADE, related_name='agent', verbose_name="Object Agent")
 
     # external_service_agent_id=
     # nullable integer, the agent ID this alert is associated with in the MAX DB. Will be null if alert type is not agent specific.
@@ -141,11 +143,11 @@ class AlertsBody (models.Model):
 
 class Comment(models.Model):
     #author = models.CharField(max_length=200, default='Anonymous')
-    author = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='authors')
-    comment = models.TextField()
-    alerts_body = models.ForeignKey(AlertsBody, on_delete=models.CASCADE, related_name='comments')
-    likes = models.PositiveIntegerField(null=True, blank=True)
-    dislikes = models.PositiveIntegerField(null=True, blank=True)
+    author = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='authors', verbose_name="Author")
+    comment = models.TextField(verbose_name="Comment")
+    alerts_body = models.ForeignKey(AlertsBody, on_delete=models.CASCADE, related_name='comments', verbose_name="Alerts Body")
+    likes = models.PositiveIntegerField(null=True, default=0, verbose_name="Likes")
+    dislikes = models.PositiveIntegerField(null=True, default=0, verbose_name="Dislikes")
 
     def __str__(self):
         return f'Author = {self.author}; Comment = {self.comment[:30]}...'

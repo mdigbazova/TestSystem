@@ -181,8 +181,8 @@ class CommentDetails(APIView):
         except Comment.DoesNotExist:
             raise Http404
 
-    def get(self, request, alerts_body_id, comment_id): #pk = AlertBody pk
-        full_request_url = request.build_absolute_uri()
+    # def get(self, request, alerts_body_id, comment_id): #pk = AlertBody pk
+    #     full_request_url = request.build_absolute_uri()
 
 
 #------------------------
