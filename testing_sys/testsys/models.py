@@ -124,6 +124,10 @@ class Agent (models.Model):
 
 
 class AlertsBody (models.Model):
+    class Meta:
+        verbose_name = 'Body'
+        verbose_name_plural = 'Alerts Bodies'
+
     createdat = models.DateTimeField(verbose_name="Creation Date")  # "2016-08-06 07:45:24" DateField
     alert_id = models.CharField (max_length=80, verbose_name="Alert ID")  # "e68b323d-8ef4-4f77-a7be-d23c0932b10b"
     alerttimestamp = models.DateTimeField(verbose_name="Alert Timestamp")  # "2016-08-06 07:45:24",DateField

@@ -39,8 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
-    'rest_framework.authtoken',
-    'rest_auth',
+
+    'rest_framework.authtoken', # Django Rest Framework’s token auth app
+    'rest_auth', # rest_auth uses the above
 
     'phonenumber_field',
     'phonenumbers',
