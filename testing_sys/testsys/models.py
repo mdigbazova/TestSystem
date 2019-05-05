@@ -19,6 +19,9 @@ from django.dispatch import receiver
 # Create your models here.
 
 
+
+#----------------------
+
 class Profile (models.Model):
     # Now this is where the magic happens: we will now define signals so our Profile model will be
     # automatically created/updated when we create/update User instances.
@@ -116,7 +119,7 @@ class Agent (models.Model):
     sdkproductversion = models.CharField(max_length=20, verbose_name="SDK Product Version")  # "5.3.28.761"
 
     def __str__(self):
-        return f'Agent ID = {self.agentid}, Agent Version = {self.agentversion}, Agent State Name = {self.agentstatename}'
+        return f'Agent ID = {self.agentid}, Agent Version = {self.agentversion}, Agent State Name = {self.get_agentstatename_display()}'
 
 # def __str__(self):
 # return f"{self.name} {self.get_color_display()}"
@@ -125,7 +128,7 @@ class Agent (models.Model):
 
 class AlertsBody (models.Model):
     class Meta:
-        verbose_name = 'Body'
+        verbose_name = 'Alerts Body'
         verbose_name_plural = 'Alerts Bodies'
 
     createdat = models.DateTimeField(verbose_name="Creation Date")  # "2016-08-06 07:45:24" DateField

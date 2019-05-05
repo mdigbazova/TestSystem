@@ -5,7 +5,28 @@ from rest_framework.response import Response
 from rest_framework import status, permissions
 
 from . models import AlertsBody, Account, Agent, Profile, Comment
-from . serializers import AlertsBodySerializer, AccountSerializer, AgentSerializer, ProfileSerializer, CommentSerializer
+from . serializers import UserCreateSerializer, AlertsBodySerializer, AccountSerializer, AgentSerializer, ProfileSerializer, CommentSerializer
+
+
+#------------------------
+
+
+class RegisterUser(APIView):
+
+    def post(self, request):
+        serializer = UserCreateSerializer(data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+            data_to_return = {}
+            data_to_return['id'] = serializer.data['id']
+            data_to_return['username'] = serializer.data['username']
+            data_to_return['first_name'] = serializer.data['first_name']
+            data_to_return['last_name'] = serializer.data['last_name']
+            data_to_return['email'] = serializer.data['email']
+            #return Response(serializer.data, status=status.HTTP_201_CREATED)
+            return Response(data_to_return, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 #------------------------

@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'model_utils',
 
     'testsys',
+    'todos',
 
 ]
 
