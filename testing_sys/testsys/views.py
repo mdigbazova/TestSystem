@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -214,3 +214,11 @@ class UserList(APIView):
         profiles = Profile.objects.all()
         serializer = ProfileSerializer(profiles, many=True)
         return Response(serializer.data)
+
+
+#-----------------------
+
+# class RedirectToPage(redirect()):
+#     def redirect_view(request):
+#         response = redirect ('/redirect-success/')
+#         return response

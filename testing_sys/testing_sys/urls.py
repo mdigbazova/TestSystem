@@ -19,5 +19,5 @@ from django.urls import path, re_path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('testsys/', include('testsys.urls')),
-    re_path('^', include('django.contrib.auth.urls')),
+    re_path('^', include('django.contrib.auth.urls')), # because Django rest reset works with Django authentication urls
 ]
