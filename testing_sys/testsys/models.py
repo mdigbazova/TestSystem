@@ -5,19 +5,18 @@ from django.core.validators import RegexValidator
 from enum import Enum
 from model_utils import Choices
 
-from rest_framework import views
-#from .serializers import UserCreateSerializer
 from rest_framework.response import Response
 
+#from pygments.lexers import get_all_lexers
+#from pygments.styles import get_all_styles
 
 #----------------------
 
-from django.db.models.signals import post_save
-from django.dispatch import receiver
-
-
 # Create your models here.
 
+#LEXERS = [item for item in get_all_lexers() if item[1]]
+#LANGUAGE_CHOICES = sorted([(item[1][0], item[0]) for item in LEXERS])
+#STYLE_CHOICES = sorted((item, item) for item in get_all_styles())
 
 
 #----------------------
@@ -115,7 +114,7 @@ class Agent (models.Model):
     #agentstatename = models.CharField (max_length=50, choices=[(tag.name, tag.value) for tag in AgentStateType], verbose_name="")  # "idle"
     agentstatename = models.CharField (max_length=1, choices=AllChoices.choices(AgentStateType), verbose_name="Agent State Name")
     currentdefinitionsversion = models.CharField (max_length=10, null=True, blank=True, default="", verbose_name="Current Definitions Version")  # ""
-    currentdefinitionsdate = models.DateTimeField(verbose_name="Current Definitions Date")  # "2016-08-08 11:35:52" DateField
+    currentdefinitionsdate = models.DateTimeField(verbose_name="Current Definitions Date", auto_now_add=True)  # "2016-08-08 11:35:52" DateField
     sdkproductversion = models.CharField(max_length=20, verbose_name="SDK Product Version")  # "5.3.28.761"
 
     def __str__(self):
@@ -131,9 +130,9 @@ class AlertsBody (models.Model):
         verbose_name = 'Alerts Body'
         verbose_name_plural = 'Alerts Bodies'
 
-    createdat = models.DateTimeField(verbose_name="Creation Date")  # "2016-08-06 07:45:24" DateField
+    createdat = models.DateTimeField(verbose_name="Creation Date", auto_now_add=True)  # "2016-08-06 07:45:24" DateField
     alert_id = models.CharField (max_length=80, verbose_name="Alert ID")  # "e68b323d-8ef4-4f77-a7be-d23c0932b10b"
-    alerttimestamp = models.DateTimeField(verbose_name="Alert Timestamp")  # "2016-08-06 07:45:24",DateField
+    alerttimestamp = models.DateTimeField(verbose_name="Alert Timestamp", auto_now_add=True)  # "2016-08-06 07:45:24",DateField
     alertstate = models.CharField (max_length=1, choices=AllChoices.choices(AlertState), verbose_name="Alert State")
     external_service_id = models.CharField (max_length=1, choices=AllChoices.choices(ExternalService), verbose_name="External Service ID")
     rm_region = models.CharField(max_length=15, verbose_name="Remote Region")  # "rm_region": "hdog_aus",

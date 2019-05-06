@@ -28,6 +28,8 @@ class RegisterUser(APIView):
             return Response(data_to_return, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly, )
+
 
 #------------------------
 
@@ -47,6 +49,8 @@ class AlertsBodiesList(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
 
 
 class AccountsList(APIView):
@@ -63,6 +67,8 @@ class AccountsList(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 
 
@@ -81,6 +87,9 @@ class AgentsList(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+
 
 
 class CommentsList(APIView):
@@ -97,6 +106,8 @@ class CommentsList(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 
 
@@ -131,6 +142,9 @@ class AlertsBodyDetails(APIView):
         alerts_body.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+
 
 
 class AccountDetails(APIView):
@@ -160,6 +174,8 @@ class AccountDetails(APIView):
         account = self.get_object(pk=account_id)
         account.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 
 
@@ -191,6 +207,8 @@ class AgentDetails(APIView):
         agent.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
 
 
 class CommentDetails(APIView):
@@ -204,6 +222,8 @@ class CommentDetails(APIView):
 
     # def get(self, request, alerts_body_id, comment_id): #pk = AlertBody pk
     #     full_request_url = request.build_absolute_uri()
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
 
 
 #------------------------
@@ -214,6 +234,8 @@ class UserList(APIView):
         profiles = Profile.objects.all()
         serializer = ProfileSerializer(profiles, many=True)
         return Response(serializer.data)
+
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 
 #-----------------------

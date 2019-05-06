@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'phonenumbers',
     'model_utils',
+    #'django_pygments',
+    'multiselectfield',
 
     'testsys',
     'todos',

@@ -19,5 +19,7 @@ from django.urls import path, re_path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('testsys/', include('testsys.urls')),
+    path('todos/', include('todos.urls')),
     re_path('^', include('django.contrib.auth.urls')), # because Django rest reset works with Django authentication urls
+    path('api-auth/', include('rest_framework.urls')),  # Permissions
 ]
