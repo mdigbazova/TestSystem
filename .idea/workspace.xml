@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5daf4b8-c65b-4108-87c1-8161a0530b98" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/testing_sys/todos/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testing_sys/todos/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing_sys/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_sys/testing_sys/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/testing_sys/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_sys/testing_sys/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/testing_sys/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing_sys/testsys/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/testsys/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_sys/testsys/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/testsys/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_sys/testsys/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/testsys/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_sys/todos/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/todos/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing_sys/todos/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/todos/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_sys/todos/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/todos/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,8 +26,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/testing_sys/todos/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="811">
-              <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
+            <state relative-caret-position="714">
+              <caret line="34" column="82" selection-start-line="34" selection-start-column="82" selection-end-line="34" selection-end-column="82" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -65,6 +55,15 @@
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testing_sys/testsys/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21">
+              <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -103,6 +102,7 @@
       <find>Meta</find>
       <find>v1</find>
       <find>datetime</find>
+      <find>related</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -116,20 +116,20 @@
         <option value="$PROJECT_DIR$/testing_sys/testsys/serializers.py" />
         <option value="$PROJECT_DIR$/testing_sys/testsys/urls.py" />
         <option value="$PROJECT_DIR$/testing_sys/testsys/views.py" />
-        <option value="$PROJECT_DIR$/testing_sys/testsys/models.py" />
         <option value="$PROJECT_DIR$/testing_sys/todos/admin.py" />
         <option value="$PROJECT_DIR$/testing_sys/testing_sys/settings.py" />
         <option value="$PROJECT_DIR$/testing_sys/todos/serializers.py" />
         <option value="$PROJECT_DIR$/testing_sys/todos/views.py" />
         <option value="$PROJECT_DIR$/testing_sys/testing_sys/urls.py" />
         <option value="$PROJECT_DIR$/testing_sys/todos/urls.py" />
+        <option value="$PROJECT_DIR$/testing_sys/testsys/models.py" />
         <option value="$PROJECT_DIR$/testing_sys/todos/models.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="929" />
-    <option name="width" value="998" />
+    <option name="x" value="687" />
+    <option name="width" value="1240" />
     <option name="height" value="1055" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -205,10 +205,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="929" y="0" width="998" height="1055" extended-state="0" />
+    <frame x="687" y="0" width="1240" height="1055" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.175" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13976705" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -262,16 +262,6 @@
           <caret line="8" column="69" selection-start-line="8" selection-start-column="69" selection-end-line="8" selection-end-column="69" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testing_sys/testsys/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" selection-start-line="9" selection-end-line="18" selection-end-column="66" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -343,10 +333,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/testing_sys/testsys/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/testing_sys/todos/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="811">
-          <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
+        <state relative-caret-position="714">
+          <caret line="34" column="82" selection-start-line="34" selection-start-column="82" selection-end-line="34" selection-end-column="82" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>

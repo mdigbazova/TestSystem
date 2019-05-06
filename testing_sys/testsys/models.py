@@ -7,16 +7,8 @@ from model_utils import Choices
 
 from rest_framework.response import Response
 
-#from pygments.lexers import get_all_lexers
-#from pygments.styles import get_all_styles
-
-#----------------------
 
 # Create your models here.
-
-#LEXERS = [item for item in get_all_lexers() if item[1]]
-#LANGUAGE_CHOICES = sorted([(item[1][0], item[0]) for item in LEXERS])
-#STYLE_CHOICES = sorted((item, item) for item in get_all_styles())
 
 
 #----------------------
@@ -136,8 +128,8 @@ class AlertsBody (models.Model):
     alertstate = models.CharField (max_length=1, choices=AllChoices.choices(AlertState), verbose_name="Alert State")
     external_service_id = models.CharField (max_length=1, choices=AllChoices.choices(ExternalService), verbose_name="External Service ID")
     rm_region = models.CharField(max_length=15, verbose_name="Remote Region")  # "rm_region": "hdog_aus",
-    account = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='account', verbose_name="Object Account")
-    agent = models.ForeignKey(Agent, on_delete=models.CASCADE, related_name='agent', verbose_name="Object Agent")
+    account = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='account_to_alerts_body', verbose_name="Object Account")
+    agent = models.ForeignKey(Agent, on_delete=models.CASCADE, related_name='agent_to_alerts_body', verbose_name="Object Agent")
 
     # external_service_agent_id=
     # nullable integer, the agent ID this alert is associated with in the MAX DB. Will be null if alert type is not agent specific.
