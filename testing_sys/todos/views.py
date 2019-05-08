@@ -16,3 +16,6 @@ class TodoDetail(generics.RetrieveUpdateDestroyAPIView):
     """I use RetrieveUpdateDestroyAPIView for a detail view of individual todo which supports CRUD-like functionality."""
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
+
+
+

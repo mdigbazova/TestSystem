@@ -32,8 +32,8 @@ class Todo(models.Model):
     code = models.TextField(blank=True)
     linenos = models.BooleanField(default=True)
     style = models.CharField(choices=STYLE_CHOICES, default='friendly', max_length=100)
-    owner = models.ForeignKey(User, related_name='todos', on_delete=models.CASCADE)
-    #owner = models.ForeignKey('auth.User', related_name='todos', on_delete=models.CASCADE, blank=True) # related_name creates an reverse relationship
+    #owner = models.ForeignKey(User, related_name='todos', on_delete=models.CASCADE, blank=True, null=True)
+    owner = models.ForeignKey('auth.User', related_name='todos', on_delete=models.CASCADE, blank=True, null=True) # related_name creates an reverse relationship
     highlighted = models.TextField(blank=True, default='')
 
     """
