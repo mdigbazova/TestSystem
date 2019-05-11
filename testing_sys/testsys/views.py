@@ -3,9 +3,12 @@ from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, permissions
+from rest_framework.decorators import api_view
+from rest_framework.reverse import reverse
 
 from . models import AlertsBody, Account, Agent, Profile, Comment
 from . serializers import UserCreateSerializer, AlertsBodySerializer, AccountSerializer, AgentSerializer, ProfileSerializer, CommentSerializer
+
 
 
 #------------------------
@@ -244,3 +247,16 @@ class UserList(APIView):
 #     def redirect_view(request):
 #         response = redirect ('/redirect-success/')
 #         return response
+
+
+
+@api_view(['GET'])
+def api_root(request, format=None):
+    return Response({
+        'alerts_bodies': reverse('alerts-bodies', request=request, format=format),
+        'accounts': reverse('accounts', request=request, format=format),
+        'agents': reverse('agents', request=request, format=format),
+        'comments': reverse('comments', request=request, format=format),
+
+    })
+

@@ -4,4 +4,9 @@ from .models import Todo
 
 # Register your models here.
 
-admin.site.register(Todo)
+
+class TodoAdmin(admin.ModelAdmin):
+    readonly_fields = ('highlighted',)
+
+
+admin.site.register(Todo, TodoAdmin)

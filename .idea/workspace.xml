@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5daf4b8-c65b-4108-87c1-8161a0530b98" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/testing_sys/testing_sys/db_work.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testing_sys/todos/permissions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing_sys/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing_sys/testing_sys/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/testing_sys/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing_sys/testing_sys/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/testing_sys/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing_sys/testsys/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/testsys/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing_sys/testsys/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/testsys/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing_sys/todos/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/todos/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing_sys/todos/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/todos/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing_sys/todos/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/todos/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing_sys/todos/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/todos/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing_sys/todos/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/todos/views.py" afterDir="false" />
     </list>
@@ -20,67 +26,40 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testing_sys/testing_sys/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1008">
-              <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+            <state relative-caret-position="479">
+              <caret line="135" selection-start-line="135" selection-end-line="135" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testing_sys/todos/models.py">
+        <entry file="file://$PROJECT_DIR$/testing_sys/todos/permissions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="924">
-              <caret line="51" column="36" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="399">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testing_sys/todos/urls.py">
+        <entry file="file://$PROJECT_DIR$/testing_sys/todos/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+            <state relative-caret-position="609">
+              <caret line="29" column="62" selection-start-line="29" selection-start-column="62" selection-end-line="29" selection-end-column="62" />
               <folding>
-                <element signature="e#0#28#0" expanded="true" />
+                <element signature="e#0#48#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/testing_sys/testing_sys/urls.py">
+        <entry file="file://$PROJECT_DIR$/testing_sys/todos/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+            <state relative-caret-position="168">
+              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
               <folding>
-                <element signature="e#635#667#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testing_sys/testsys/admin.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testing_sys/todos/admin.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -89,27 +68,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testing_sys/todos/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+            <state relative-caret-position="630">
+              <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/DProgramFiles/Python/Python3.6.6/Lib/site-packages/rest_framework/serializers.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testing_sys/todos/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -138,6 +100,7 @@
       <find>v1</find>
       <find>datetime</find>
       <find>related</find>
+      <find>REST_FRAMEWORK</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -148,25 +111,26 @@
       <list>
         <option value="$PROJECT_DIR$/testing_sys/testsys/forms.py" />
         <option value="$PROJECT_DIR$/testing_sys/testsys/admin.py" />
-        <option value="$PROJECT_DIR$/testing_sys/testsys/serializers.py" />
+        <option value="$PROJECT_DIR$/testing_sys/testsys/models.py" />
+        <option value="$PROJECT_DIR$/testing_sys/testing_sys/db_work.py" />
+        <option value="$PROJECT_DIR$/testing_sys/todos/admin.py" />
+        <option value="$PROJECT_DIR$/testing_sys/todos/permissions.py" />
+        <option value="$PROJECT_DIR$/testing_sys/todos/models.py" />
+        <option value="$PROJECT_DIR$/testing_sys/testing_sys/urls.py" />
         <option value="$PROJECT_DIR$/testing_sys/testsys/urls.py" />
         <option value="$PROJECT_DIR$/testing_sys/testsys/views.py" />
-        <option value="$PROJECT_DIR$/testing_sys/todos/admin.py" />
-        <option value="$PROJECT_DIR$/testing_sys/testing_sys/settings.py" />
-        <option value="$PROJECT_DIR$/testing_sys/testing_sys/urls.py" />
-        <option value="$PROJECT_DIR$/testing_sys/testsys/models.py" />
+        <option value="$PROJECT_DIR$/testing_sys/testsys/serializers.py" />
         <option value="$PROJECT_DIR$/testing_sys/todos/serializers.py" />
-        <option value="$PROJECT_DIR$/testing_sys/testing_sys/db_work.py" />
+        <option value="$PROJECT_DIR$/testing_sys/testing_sys/settings.py" />
         <option value="$PROJECT_DIR$/testing_sys/todos/views.py" />
-        <option value="$PROJECT_DIR$/testing_sys/todos/models.py" />
         <option value="$PROJECT_DIR$/testing_sys/todos/urls.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="611" />
-    <option name="y" value="9" />
-    <option name="width" value="1309" />
+    <option name="x" value="747" />
+    <option name="y" value="2" />
+    <option name="width" value="1176" />
     <option name="height" value="1046" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -242,9 +206,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="611" y="9" width="1309" height="1046" extended-state="0" />
+    <frame x="747" y="2" width="1176" height="1046" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13060582" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14499122" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -273,26 +238,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testing_sys/testsys/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="82" />
-          <folding>
-            <element signature="e#56#94#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testing_sys/testsys/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testing_sys/todos/migrations/0004_remove_todo_owner.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -300,33 +245,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testing_sys/testsys/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testing_sys/testing_sys/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1008">
-          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testing_sys/todos/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="924">
-          <caret line="51" column="36" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -340,55 +258,115 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://D:/DProgramFiles/Python/Python3.6.6/Lib/site-packages/rest_framework/serializers.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testing_sys/todos/apps.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testing_sys/todos/tests.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/testing_sys/todos/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="189">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testing_sys/todos/serializers.py">
+    <entry file="file://$PROJECT_DIR$/testing_sys/testsys/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+        <state relative-caret-position="571">
+          <caret line="254" column="21" selection-start-line="254" selection-start-column="21" selection-end-line="254" selection-end-column="21" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/DProgramFiles/Python/Python3.6.6/Lib/site-packages/rest_framework/serializers.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testing_sys/todos/views.py">
+    <entry file="file://$PROJECT_DIR$/testing_sys/testsys/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+        <state relative-caret-position="508">
+          <caret line="50" column="85" selection-start-line="50" selection-start-column="85" selection-end-line="50" selection-end-column="85" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#56#94#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testing_sys/todos/urls.py">
+    <entry file="file://$PROJECT_DIR$/testing_sys/testsys/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+        <state relative-caret-position="546">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#46#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testing_sys/testing_sys/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+        <state relative-caret-position="525">
+          <caret line="23" column="111" selection-start-line="23" selection-start-column="111" selection-end-line="23" selection-end-column="111" />
           <folding>
             <element signature="e#635#667#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testing_sys/todos/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testing_sys/todos/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1222">
+          <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testing_sys/todos/permissions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testing_sys/testing_sys/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="135" selection-start-line="135" selection-end-line="135" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testing_sys/todos/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="29" column="62" selection-start-line="29" selection-start-column="62" selection-end-line="29" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testing_sys/todos/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,11 +1,11 @@
 from django.db import models
 
+import pygments
 from pygments import highlight # for highlighted code
 from pygments.formatters.html import HtmlFormatter # for HTML representation of code
 from pygments.lexers import get_all_lexers, get_lexer_by_name
 from pygments.styles import get_all_styles
 from multiselectfield import MultiSelectField
-from django.contrib.auth.models import User
 
 #----------------------
 
@@ -14,9 +14,9 @@ STATE_CHOICES = (
     (1, 'TO BE DONE'),
     (2, 'PROCESSING'),
     (3, 'RESEARCHING'),
-    (4, 'DONE!'),
-    (5, 'FAILED'),
-    (6, 'FIXED'),
+    (4, 'FAILED'),
+    (5, 'FIXED'),
+    (6, 'DONE!'),
 )
 
 LEXERS = [item for item in get_all_lexers() if item[1]]
@@ -31,14 +31,13 @@ class Todo(models.Model):
     language = models.CharField(choices=LANGUAGE_CHOICES, default='python', max_length=100)
     code = models.TextField(blank=True)
     linenos = models.BooleanField(default=True)
-    style = models.CharField(choices=STYLE_CHOICES, default='friendly', max_length=100)
-    #owner = models.ForeignKey(User, related_name='todos', on_delete=models.CASCADE, default=1)
+    style = models.CharField(choices=STYLE_CHOICES, default='solarized-light', max_length=100)
     owner = models.ForeignKey('auth.User', related_name='todos', on_delete=models.CASCADE, null=True) # related_name creates an reverse relationship
     highlighted = models.TextField(blank=True, default='')
 
     """
     Requests and Responses
-    Currently our API has no restrictions on who can edit or delete todos&code. In this section we will make sure that:
+    To be sure that I have restrictions on who can edit or delete todos&code. 
 
     Todos are always associated with a creator
     Only authenticated users may create todos
@@ -47,7 +46,7 @@ class Todo(models.Model):
     """
 
     class Meta:
-        ordering = ('state',)
+        ordering = ('owner', 'state',)
 
     def save(self, *args, **kwargs):
         """
@@ -64,7 +63,7 @@ class Todo(models.Model):
 
     def __str__(self):
         """A string representation of the model."""
-        return f'{self.title} - on the state of {self.state}. Language {self.language}'
+        return f'{self.owner}:   {self.title} ;   STATE:  {self.state}. Language {self.language}'
 
 
 

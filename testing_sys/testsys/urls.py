@@ -18,4 +18,5 @@ urlpatterns = [
     #re_path('^users/comments/$', views.UserList.as_view(), name='user-details'),
     re_path ('^alerts-bodies/(?P<alerts_body_id>\d+)/comments/(?P<comment_id>\d+)/$', views.CommentDetails.as_view(), name="comment-details"),
     #re_path ('^redirect/$', redirect_view),
+    path('', views.api_root),
 ]
