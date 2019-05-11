@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5daf4b8-c65b-4108-87c1-8161a0530b98" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/testing_sys/todos/permissions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_sys/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_sys/testing_sys/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/testing_sys/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_sys/testing_sys/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/testing_sys/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing_sys/testsys/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/testsys/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_sys/testsys/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/testsys/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_sys/todos/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/todos/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_sys/todos/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/todos/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_sys/todos/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/todos/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_sys/todos/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/todos/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_sys/todos/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing_sys/todos/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,13 +42,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testing_sys/todos/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+            <state relative-caret-position="483">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/testing_sys/testsys/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+              <folding>
+                <element signature="e#0#46#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -117,13 +118,13 @@
         <option value="$PROJECT_DIR$/testing_sys/todos/permissions.py" />
         <option value="$PROJECT_DIR$/testing_sys/todos/models.py" />
         <option value="$PROJECT_DIR$/testing_sys/testing_sys/urls.py" />
-        <option value="$PROJECT_DIR$/testing_sys/testsys/urls.py" />
         <option value="$PROJECT_DIR$/testing_sys/testsys/views.py" />
         <option value="$PROJECT_DIR$/testing_sys/testsys/serializers.py" />
         <option value="$PROJECT_DIR$/testing_sys/todos/serializers.py" />
         <option value="$PROJECT_DIR$/testing_sys/testing_sys/settings.py" />
         <option value="$PROJECT_DIR$/testing_sys/todos/views.py" />
         <option value="$PROJECT_DIR$/testing_sys/todos/urls.py" />
+        <option value="$PROJECT_DIR$/testing_sys/testsys/urls.py" />
       </list>
     </option>
   </component>
@@ -297,16 +298,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testing_sys/testsys/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testing_sys/testing_sys/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -363,10 +354,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/testing_sys/todos/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        <state relative-caret-position="483">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testing_sys/testsys/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
           </folding>
         </state>
       </provider>

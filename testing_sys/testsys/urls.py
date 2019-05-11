@@ -1,10 +1,13 @@
 from django.urls import path, re_path, include
 
 from . import views
+from rest_framework.schemas import get_schema_view
 #from . views import redirect_view #RedirectToPage
 
+schema_view = get_schema_view(title='Pastebin API')
 
 urlpatterns = [
+    path('schema/', schema_view),
     path('rest-auth/', include('rest_auth.urls')), # Authentications
     path('register/', views.RegisterUser.as_view(), name='register'),
     re_path('^alerts-bodies/$', views.AlertsBodiesList.as_view(), name="alerts-bodies"),
