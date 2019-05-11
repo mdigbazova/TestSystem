@@ -6,7 +6,7 @@ from .serializers import TodoSerializer
 # Create your views here.
 
 
-class TodoList(generics.ListCreateAPIView):
+class TodosList(generics.ListCreateAPIView):
     """I use ListCreateAPIView to create a read-only endpoint that lists all available Todo instances"""
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
