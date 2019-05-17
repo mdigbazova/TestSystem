@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 import pygments
 from pygments import highlight # for highlighted code
@@ -6,6 +7,7 @@ from pygments.formatters.html import HtmlFormatter # for HTML representation of 
 from pygments.lexers import get_all_lexers, get_lexer_by_name
 from pygments.styles import get_all_styles
 from multiselectfield import MultiSelectField
+from datetime import date
 
 #----------------------
 
@@ -27,12 +29,14 @@ STYLE_CHOICES = sorted((item, item) for item in get_all_styles())
 class Todo(models.Model):
     title = models.CharField(max_length=200, blank=True)
     description = models.TextField(blank=True)
+    created_date = models.DateField(default=timezone.now())
     state = MultiSelectField(choices=STATE_CHOICES, default=1)
+    end_date = models.DateField(null=True, blank=True) # auto_now=True,
     language = models.CharField(choices=LANGUAGE_CHOICES, default='python', max_length=100)
     code = models.TextField(blank=True)
     linenos = models.BooleanField(default=True)
     style = models.CharField(choices=STYLE_CHOICES, default='solarized-light', max_length=100)
-    owner = models.ForeignKey('auth.User', related_name='todos', on_delete=models.CASCADE, null=True) # related_name creates an reverse relationship
+    owner = models.ForeignKey('auth.User', related_name='todos', on_delete=models.CASCADE, null=True) # related_name creates a reverse relationship
     highlighted = models.TextField(blank=True, default='')
 
     """
@@ -46,7 +50,7 @@ class Todo(models.Model):
     """
 
     class Meta:
-        ordering = ('owner', 'state',)
+        ordering = ('owner', 'state', 'created_date')
 
     def save(self, *args, **kwargs):
         """
@@ -63,7 +67,7 @@ class Todo(models.Model):
 
     def __str__(self):
         """A string representation of the model."""
-        return f'{self.owner}:   {self.title} ;   STATE:  {self.state}. Language {self.language}'
+        return f'{self.owner}:   {self.title} ;   CREATED AT: {self.created_date}.  STATE:  {self.state}. LANGUAGE {self.language}'
 
 
 
