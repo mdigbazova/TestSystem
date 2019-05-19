@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from rest_framework import status, permissions
 from rest_framework.decorators import api_view
 from rest_framework.reverse import reverse
+from django.shortcuts import redirect
 
 from . models import AlertsBody, Account, Agent, Profile, Comment
 from . serializers import UserCreateSerializer, AlertsBodySerializer, AccountSerializer, AgentSerializer, ProfileSerializer, CommentSerializer
@@ -20,10 +21,24 @@ from . serializers import UserCreateSerializer, AlertsBodySerializer, AccountSer
 #
 # login_after_password_change = login_required(LoginAfterPasswordChangeView.as_view())
 
+#-------------------------
 
+# class RedirectToPage(redirect('login')):
+#     def redirect_view(request):
+#         response = redirect('/redirect-success/')
+#         return response
+
+#-----------------------
+
+# class RedirectToPage(redirect()):
+#     def redirect_view(request):
+#         response = redirect ('/redirect-success/')
+#         return response
+
+#--------------------------
 
 class RegisterUser(APIView):
-
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     def post(self, request):
         serializer = UserCreateSerializer(data=request.data)
 
@@ -39,14 +54,12 @@ class RegisterUser(APIView):
             return Response(data_to_return, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly, )
-
 
 #------------------------
 
 
 class AlertsBodiesList(APIView):
-
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     def get(self, request):
         alerts_bodies = AlertsBody.objects.all()
         serializer = AlertsBodySerializer(alerts_bodies, many=True) # serializes!!!
@@ -60,12 +73,10 @@ class AlertsBodiesList(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
-
 
 
 class AccountsList(APIView):
-
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     def get(self, request):
         accounts = Account.objects.all()
         serializer = AccountSerializer(accounts, many=True) # serializes!!!
@@ -79,12 +90,10 @@ class AccountsList(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
-
 
 
 class AgentsList(APIView):
-
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     def get(self, request):
         agents = Agent.objects.all()
         serializer = AgentSerializer(agents, many=True)
@@ -98,13 +107,10 @@ class AgentsList(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
-
-
 
 
 class CommentsList(APIView):
-
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     def get(self, request):
         comments = Comment.objects.all()
         serializer = CommentSerializer(comments, many=True)
@@ -118,15 +124,13 @@ class CommentsList(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
-
 
 
 #------------------------
 
 
 class AlertsBodyDetails(APIView):
-
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     def get_object(self, pk):
         try:
             alerts_body = AlertsBody.objects.get(pk=pk)
@@ -153,13 +157,10 @@ class AlertsBodyDetails(APIView):
         alerts_body.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
-
-
 
 
 class AccountDetails(APIView):
-
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     def get_object(self, pk):
         try:
             account = Account.objects.get(pk=pk)
@@ -186,12 +187,10 @@ class AccountDetails(APIView):
         account.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
-
 
 
 class AgentDetails(APIView):
-
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     def get_object(self, pk):
         try:
             agent = Agent.objects.get(pk=pk)
@@ -218,12 +217,10 @@ class AgentDetails(APIView):
         agent.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
-
 
 
 class CommentDetails(APIView):
-
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     def get_object(self, pk):
         try:
             comment = Comment.objects.get(pk=pk)
@@ -233,28 +230,17 @@ class CommentDetails(APIView):
 
     # def get(self, request, alerts_body_id, comment_id): #pk = AlertBody pk
     #     full_request_url = request.build_absolute_uri()
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 
 
 #------------------------
 
 class UserList(APIView):
-
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     def get(self, request):
         profiles = Profile.objects.all()
         serializer = ProfileSerializer(profiles, many=True)
         return Response(serializer.data)
-
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
-
-
-#-----------------------
-
-# class RedirectToPage(redirect()):
-#     def redirect_view(request):
-#         response = redirect ('/redirect-success/')
-#         return response
 
 
 

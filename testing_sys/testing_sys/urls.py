@@ -22,4 +22,5 @@ urlpatterns = [
     path('todos/', include('todos.urls')),
     re_path('^', include('django.contrib.auth.urls')), # because Django rest reset works with Django authentication urls
     path('api-auth/', include('rest_framework.urls')),  # Permissions, adding a login view to the browsable API
+
 ]
