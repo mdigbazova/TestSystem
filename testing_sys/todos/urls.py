@@ -11,7 +11,7 @@ urlpatterns = [
     path('todo/<int:pk>/', views.TodoDetail.as_view(), name="todo-detail"),
     path('todo/<int:pk>/highlight/', views.TodoHighlight.as_view(), name='todo-highlight'),
     path('users/', views.UserList.as_view (), name="user-list"),
-    path('user/<int:pk>/', views.UserDetail.as_view (), name="user"),
+    path('user/<int:pk>/', views.UserDetail.as_view (), name="user-detail"),
     path('', views.api_root),
 ]
 
