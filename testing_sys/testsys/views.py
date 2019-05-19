@@ -38,7 +38,7 @@ from . serializers import UserCreateSerializer, AlertsBodySerializer, AccountSer
 #--------------------------
 
 class RegisterUser(APIView):
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     def post(self, request):
         serializer = UserCreateSerializer(data=request.data)
 
@@ -59,7 +59,7 @@ class RegisterUser(APIView):
 
 
 class AlertsBodiesList(APIView):
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     def get(self, request):
         alerts_bodies = AlertsBody.objects.all()
         serializer = AlertsBodySerializer(alerts_bodies, many=True) # serializes!!!
@@ -76,7 +76,7 @@ class AlertsBodiesList(APIView):
 
 
 class AccountsList(APIView):
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     def get(self, request):
         accounts = Account.objects.all()
         serializer = AccountSerializer(accounts, many=True) # serializes!!!
@@ -93,7 +93,7 @@ class AccountsList(APIView):
 
 
 class AgentsList(APIView):
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     def get(self, request):
         agents = Agent.objects.all()
         serializer = AgentSerializer(agents, many=True)
@@ -110,7 +110,7 @@ class AgentsList(APIView):
 
 
 class CommentsList(APIView):
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     def get(self, request):
         comments = Comment.objects.all()
         serializer = CommentSerializer(comments, many=True)
@@ -130,7 +130,7 @@ class CommentsList(APIView):
 
 
 class AlertsBodyDetails(APIView):
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     def get_object(self, pk):
         try:
             alerts_body = AlertsBody.objects.get(pk=pk)
@@ -160,7 +160,7 @@ class AlertsBodyDetails(APIView):
 
 
 class AccountDetails(APIView):
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     def get_object(self, pk):
         try:
             account = Account.objects.get(pk=pk)
@@ -190,7 +190,7 @@ class AccountDetails(APIView):
 
 
 class AgentDetails(APIView):
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     def get_object(self, pk):
         try:
             agent = Agent.objects.get(pk=pk)
@@ -220,7 +220,7 @@ class AgentDetails(APIView):
 
 
 class CommentDetails(APIView):
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     def get_object(self, pk):
         try:
             comment = Comment.objects.get(pk=pk)
@@ -236,7 +236,7 @@ class CommentDetails(APIView):
 #------------------------
 
 class UserList(APIView):
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     def get(self, request):
         profiles = Profile.objects.all()
         serializer = ProfileSerializer(profiles, many=True)

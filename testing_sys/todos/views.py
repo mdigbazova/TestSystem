@@ -16,7 +16,7 @@ class TodosList(generics.ListCreateAPIView):
     #all available todoinstances
     serializer_class = TodoSerializer
     # only authenticated users to be able to create, update, and delete code snippets.
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     """
     To automatically associate the logged-in user with created todo - by overriding 
@@ -30,7 +30,7 @@ class TodoDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Todo.objects.all()#RetrieveUpdateDestroyAPIView supports CRUD-like functionality
     serializer_class = TodoSerializer
     # only authenticated users to be able to create, update, and delete code snippets.
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly,)
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
 
 """
