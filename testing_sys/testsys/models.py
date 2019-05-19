@@ -4,6 +4,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 from django.core.validators import RegexValidator
 from enum import Enum
 from model_utils import Choices
+from django.utils import timezone
 
 from rest_framework.response import Response
 
@@ -24,25 +25,6 @@ class Profile (models.Model):
     def __str__(self):
         return f'{self.user}'
 
-
-# #Basically we are hooking the create_user_profile and save_user_profile methods to the User model,
-# # whenever a save event occurs. This kind of signal is called post_save.
-# @receiver(post_save, sender=User)
-# def create_user_profile(sender, instance, created, **kwargs):
-#     if created:
-#         Profile.objects.create(user=instance)
-# 
-# @receiver(post_save, sender=User)
-# def save_user_profile(sender, instance, **kwargs):
-#     instance.profile.save()
-# 
-# 
-# def update_profile(request, user_id):
-#     user = User.objects.get(pk=user_id)
-#     user.profile.phone_number = request.phone_number
-#     user.profile.profession = request.profession
-# 
-#     user.save()
 
 #----------------------
 
@@ -106,7 +88,7 @@ class Agent (models.Model):
     #agentstatename = models.CharField (max_length=50, choices=[(tag.name, tag.value) for tag in AgentStateType], verbose_name="")  # "idle"
     agentstatename = models.CharField (max_length=1, choices=AllChoices.choices(AgentStateType), verbose_name="Agent State Name")
     currentdefinitionsversion = models.CharField (max_length=10, null=True, blank=True, default="", verbose_name="Current Definitions Version")  # ""
-    currentdefinitionsdate = models.DateTimeField(verbose_name="Current Definitions Date", auto_now_add=True)  # "2016-08-08 11:35:52" DateField
+    currentdefinitionsdate = models.DateTimeField(verbose_name="Current Definitions Date", default=timezone.now())  # "2016-08-08 11:35:52" DateField
     sdkproductversion = models.CharField(max_length=20, verbose_name="SDK Product Version")  # "5.3.28.761"
 
     def __str__(self):
@@ -122,9 +104,9 @@ class AlertsBody (models.Model):
         verbose_name = 'Alerts Body'
         verbose_name_plural = 'Alerts Bodies'
 
-    createdat = models.DateTimeField(verbose_name="Creation Date", auto_now_add=True)  # "2016-08-06 07:45:24" DateField
+    createdat = models.DateTimeField(verbose_name="Creation Date", default=timezone.now())  # "2016-08-06 07:45:24" DateField, auto_now_add=True,
     alert_id = models.CharField (max_length=80, verbose_name="Alert ID")  # "e68b323d-8ef4-4f77-a7be-d23c0932b10b"
-    alerttimestamp = models.DateTimeField(verbose_name="Alert Timestamp", auto_now_add=True)  # "2016-08-06 07:45:24",DateField
+    alerttimestamp = models.DateTimeField(verbose_name="Alert Timestamp", default=timezone.now())  # "2016-08-06 07:45:24",DateField
     alertstate = models.CharField (max_length=1, choices=AllChoices.choices(AlertState), verbose_name="Alert State")
     external_service_id = models.CharField (max_length=1, choices=AllChoices.choices(ExternalService), verbose_name="External Service ID")
     rm_region = models.CharField(max_length=15, verbose_name="Remote Region")  # "rm_region": "hdog_aus",

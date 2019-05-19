@@ -13,6 +13,14 @@ from . serializers import UserCreateSerializer, AlertsBodySerializer, AccountSer
 
 #------------------------
 
+# class LoginAfterPasswordChangeView(PasswordChangeView):
+#     @property
+#     def success_url(self):
+#         return reverse_lazy('account_login')
+#
+# login_after_password_change = login_required(LoginAfterPasswordChangeView.as_view())
+
+
 
 class RegisterUser(APIView):
 
