@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path, include
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('rest-auth/', include('rest_auth.urls')), # Authentications
     path('api/v1/testsys/', include('testsys.urls')),
     path('api/v1/todos/', include('todos.urls')),
     re_path('^', include('django.contrib.auth.urls')), # because Django rest reset works with Django authentication urls

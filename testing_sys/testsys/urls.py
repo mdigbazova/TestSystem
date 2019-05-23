@@ -9,8 +9,8 @@ schema_view = get_schema_view(title='Pastebin API')
 
 urlpatterns = [
     path('schema/', schema_view),
-    path('rest-auth/', include('rest_auth.urls')), # Authentications
-    path('register/', views.RegisterUser.as_view(), name='register'),
+    #path('rest-auth/', include('rest_auth.urls')), # Authentications
+    re_path('^register/', views.RegisterUser.as_view(), name='register'), #register functionality
     re_path('^alerts-bodies/$', views.AlertsBodiesList.as_view(), name="alerts-bodies"),
     re_path('^accounts/$', views.AccountsList.as_view(), name="accounts"),
     re_path('^agents/$', views.AgentsList.as_view(), name="agents"),

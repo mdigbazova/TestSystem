@@ -1,11 +1,19 @@
-#from rest_framework.serializers import ModelSerializer
 from rest_framework import serializers
+from rest_framework.validators import UniqueValidator
 from django.contrib.auth.models import User
 
 from . models import AlertsBody, Account, Agent, Comment, Profile
 
 
 class UserCreateSerializer(serializers.ModelSerializer):
+    email = serializers.EmailField(
+        required=True,
+        validators=[UniqueValidator(queryset=User.objects.all())]
+    )
+    username = serializers.CharField(
+        validators=[UniqueValidator(queryset=User.objects.all())]
+    )
+
     class Meta:
         model = User
         fields = ('id', 'username', 'password', 'email', 'first_name', 'last_name')
@@ -23,6 +31,7 @@ class UserCreateSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
         return user
+
 
 
 class CommentSerializer(serializers.ModelSerializer):

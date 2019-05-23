@@ -38,20 +38,22 @@ from . serializers import UserCreateSerializer, AlertsBodySerializer, AccountSer
 #--------------------------
 
 class RegisterUser(APIView):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
     def post(self, request):
         serializer = UserCreateSerializer(data=request.data)
 
         if serializer.is_valid():
-            serializer.save()
-            data_to_return = {}
-            data_to_return['id'] = serializer.data['id']
-            data_to_return['username'] = serializer.data['username']
-            data_to_return['first_name'] = serializer.data['first_name']
-            data_to_return['last_name'] = serializer.data['last_name']
-            data_to_return['email'] = serializer.data['email']
-            #return Response(serializer.data, status=status.HTTP_201_CREATED)
-            return Response(data_to_return, status=status.HTTP_201_CREATED)
+            user = serializer.save()
+            if user:
+                data_to_return = {}
+                data_to_return['id'] = serializer.data['id']
+                data_to_return['username'] = serializer.data['username']
+                data_to_return['first_name'] = serializer.data['first_name']
+                data_to_return['last_name'] = serializer.data['last_name']
+                data_to_return['email'] = serializer.data['email']
+                return Response(data_to_return, status=status.HTTP_201_CREATED)
+                #return Response (serializer.data, status=status.HTTP_201_CREATED)
+
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -247,6 +249,7 @@ class UserList(APIView):
 @api_view(['GET'])
 def api_root(request, format=None):
     return Response({
+        #'register_user': reverse('register', request=request, format=format),
         'alerts_bodies': reverse('alerts-bodies', request=request, format=format),
         'accounts': reverse('accounts', request=request, format=format),
         'agents': reverse('agents', request=request, format=format),
