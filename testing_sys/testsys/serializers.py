@@ -39,6 +39,7 @@ class CommentSerializer(serializers.ModelSerializer):
         model = Comment
         fields = ('id', 'author', 'comment', 'likes', 'dislikes')
 
+#---------------------
 
 class AlertsBodySerializer(serializers.ModelSerializer):
     comments = CommentSerializer(many=True, read_only=True)
@@ -47,11 +48,29 @@ class AlertsBodySerializer(serializers.ModelSerializer):
         model = AlertsBody
         fields = ('id', 'alert_id', 'createdat', 'alerttimestamp', 'alertstate', 'external_service_id', 'rm_region', 'account', 'agent', 'comments') #reversed relationship
 
+#---------------------
+
 
 class AccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
         fields = ('id', 'accountid', 'RemoteAccountID', 'RemoteWebServiceHost', 'remoteserviceid')
+
+
+class AccountCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Account
+        fields = ('__all__')
+
+    def create(self, validated_data):
+        #import pdb; pdb.set_trace()
+        validated_data['accountid'] = self.data['accountid']
+        validated_data['RemoteAccountID'] = self.data['RemoteAccountID']
+        validated_data['RemoteWebServiceHost'] = self.data['RemoteWebServiceHost']
+        validated_data['remoteserviceid'] = self.data['remoteserviceid']
+        return super(AccountCreateSerializer, self).create(validated_data)
+
+#---------------------
 
 
 class AgentSerializer(serializers.ModelSerializer):
