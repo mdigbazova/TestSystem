@@ -9,35 +9,10 @@ from rest_framework.reverse import reverse
 from rest_framework import generics, renderers
 
 from . models import AlertsBody, Account, Agent, Profile, Comment
-from . serializers import UserCreateSerializer, AlertsBodySerializer, AccountSerializer, AgentSerializer, ProfileSerializer, CommentSerializer, AccountCreateSerializer
+from . serializers import UserCreateSerializer, AlertsBodySerializer, AccountSerializer, AgentSerializer, ProfileSerializer, CommentSerializer, OwnerSerializer
+from . serializers import AccountCreateSerializer, AgentCreateSerializer, AlertsBodyCreateSerializer
 from . permissions import IsOwnerOrReadOnly
-
-
-#------------------------
-
-
-class MethodSerializerView(object):
-    '''
-    Utility class for get different serializer class by method.
-    For example:
-    method_serializer_classes = {
-        ('GET', ): MyModelListViewSerializer,
-        ('PUT', 'PATCH'): MyModelCreateUpdateSerializer
-    }
-    '''
-    method_serializer_classes = None
-
-    def get_serializer_class(self):
-        assert self.method_serializer_classes is not None, (
-            'Expected view %s should contain method_serializer_classes '
-            'to get right serializer class.' %
-            (self.__class__.__name__, )
-        )
-        for methods, serializer_cls in self.method_serializer_classes.items():
-            if self.request.method in methods:
-                return serializer_cls
-
-        raise exceptions.MethodNotAllowed(self.request.method)
+from . method_serializer_view import MethodSerializerView
 
 #------------------------
 
@@ -72,7 +47,7 @@ class AccountDetails(MethodSerializerView, generics.RetrieveUpdateDestroyAPIView
 
     method_serializer_classes = {
         ('GET'): AccountSerializer,
-        ('PUT', 'PATCH'): AccountCreateSerializer,
+        ('PUT', 'PATCH'): AccountCreateSerializer
     }
 
     permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
@@ -80,40 +55,54 @@ class AccountDetails(MethodSerializerView, generics.RetrieveUpdateDestroyAPIView
 #---------------------------
 
 
-class AlertsBodiesList(APIView):
+class AgentsList(MethodSerializerView, generics.ListCreateAPIView):
+    queryset = Agent.objects.all()
+    serializer_class = AgentSerializer
+
+    method_serializer_classes = {
+        ('GET',): AgentSerializer,
+        ('POST'): AgentCreateSerializer
+    }
+
     permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
-    def get(self, request):
-        alerts_bodies = AlertsBody.objects.all()
-        serializer = AlertsBodySerializer(alerts_bodies, many=True) # serializes!!!
-        return Response(serializer.data, status=status.HTTP_200_OK)
 
-    def post(self, request):
-        serializer = AlertsBodySerializer(data=request.data) # data=request.data -> deserializes!!!
+class AgentDetails(MethodSerializerView, generics.RetrieveUpdateDestroyAPIView):
+    queryset = Agent.objects.all()
 
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    method_serializer_classes = {
+        ('GET'): AgentSerializer,
+        ('PUT', 'PATCH'): AgentCreateSerializer
+    }
 
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
 
 #---------------------------
 
-class AgentsList(APIView):
+
+class AlertsBodiesList(MethodSerializerView, generics.ListCreateAPIView):
+    queryset = AlertsBody.objects.all()
+    serializer_class = AlertsBodySerializer
+
+    method_serializer_classes = {
+        ('GET',): AlertsBodySerializer,
+        ('POST'): AlertsBodyCreateSerializer
+    }
+
     permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
-    def get(self, request):
-        agents = Agent.objects.all()
-        serializer = AgentSerializer(agents, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
 
-    def post(self, request):
-        serializer = AgentSerializer (data=request.data)  # data=request.data -> deserializes!!!
 
-        if serializer.is_valid ():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class AlertsBodyDetails(MethodSerializerView, generics.RetrieveUpdateDestroyAPIView):
+    queryset = AlertsBody.objects.all()
 
+    method_serializer_classes = {
+        ('GET'): AlertsBodySerializer,
+        ('PUT', 'PATCH'): AlertsBodyCreateSerializer
+    }
+
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
+
+#---------------------------
 
 
 class CommentsList(APIView):
@@ -133,69 +122,6 @@ class CommentsList(APIView):
 
 
 
-#------------------------
-
-
-class AlertsBodyDetails(APIView):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
-    def get_object(self, pk):
-        try:
-            alerts_body = AlertsBody.objects.get(pk=pk)
-            return alerts_body
-        except AlertsBody.DoesNotExist:
-            raise Http404
-
-    def get(self, request, alerts_body_id):
-        alerts_body = self.get_object(pk=alerts_body_id)
-        serializer = AlertsBodySerializer(alerts_body)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-
-    def put(self, request, alerts_body_id):
-        alerts_body = self.get_object(pk=alerts_body_id)
-        serializer = AlertsBodySerializer(alerts_body, data=request.data)
-
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    def delete(self, request, alerts_body_id):
-        alerts_body = self.get_object(pk=alerts_body_id)
-        alerts_body.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
-
-
-
-class AgentDetails(APIView):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
-    def get_object(self, pk):
-        try:
-            agent = Agent.objects.get(pk=pk)
-            return agent
-        except Agent.DoesNotExist:
-            raise Http404
-
-    def get(self, request, agent_id):
-        agent = self.get_object(pk=agent_id)
-        serializer = AgentSerializer(agent)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-
-    def put(self, request, agent_id):
-        agent = self.get_object(pk=agent_id)
-        serializer = AgentSerializer(agent, data=request.data)
-
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    def delete(self, request, agent_id):
-        agent = self.get_object(pk=agent_id)
-        agent.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
-
-
-
 class CommentDetails(APIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
     def get_object(self, pk):
@@ -209,11 +135,10 @@ class CommentDetails(APIView):
     #     full_request_url = request.build_absolute_uri()
 
 
-
 #------------------------
 
 class UserList(APIView):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     def get(self, request):
         profiles = Profile.objects.all()
         serializer = ProfileSerializer(profiles, many=True)
@@ -300,3 +225,106 @@ def api_root(request, format=None):
 #         account.delete()
 #         return Response(status=status.HTTP_204_NO_CONTENT)
 
+#--------------------------
+
+#
+# class AgentsList(APIView):
+#     permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
+#     def get(self, request):
+#         agents = Agent.objects.all()
+#         serializer = AgentSerializer(agents, many=True)
+#         return Response(serializer.data, status=status.HTTP_200_OK)
+#
+#     def post(self, request):
+#         serializer = AgentSerializer (data=request.data)  # data=request.data -> deserializes!!!
+#
+#         if serializer.is_valid ():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+#
+# class AgentDetails(APIView):
+#     permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
+#     def get_object(self, pk):
+#         try:
+#             agent = Agent.objects.get(pk=pk)
+#             return agent
+#         except Agent.DoesNotExist:
+#             raise Http404
+#
+#     def get(self, request, agent_id):
+#         agent = self.get_object(pk=agent_id)
+#         serializer = AgentSerializer(agent)
+#         return Response(serializer.data, status=status.HTTP_200_OK)
+#
+#     def put(self, request, agent_id):
+#         agent = self.get_object(pk=agent_id)
+#         serializer = AgentSerializer(agent, data=request.data)
+#
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+#
+#     def delete(self, request, agent_id):
+#         agent = self.get_object(pk=agent_id)
+#         agent.delete()
+#         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+#--------------------------
+
+#
+#
+# class AlertsBodiesList(APIView):
+#     permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
+#
+#     def get(self, request):
+#         alerts_bodies = AlertsBody.objects.all()
+#         serializer = AlertsBodySerializer(alerts_bodies, many=True) # serializes!!!
+#         return Response(serializer.data, status=status.HTTP_200_OK)
+#
+#     def post(self, request):
+#         serializer = AlertsBodySerializer(data=request.data) # data=request.data -> deserializes!!!
+#
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+#
+#
+# #------------------------
+#
+#
+# class AlertsBodyDetails(APIView):
+#     permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
+#     def get_object(self, pk):
+#         try:
+#             alerts_body = AlertsBody.objects.get(pk=pk)
+#             return alerts_body
+#         except AlertsBody.DoesNotExist:
+#             raise Http404
+#
+#     def get(self, request, alerts_body_id):
+#         alerts_body = self.get_object(pk=alerts_body_id)
+#         serializer = AlertsBodySerializer(alerts_body)
+#         return Response(serializer.data, status=status.HTTP_200_OK)
+#
+#     def put(self, request, alerts_body_id):
+#         alerts_body = self.get_object(pk=alerts_body_id)
+#         serializer = AlertsBodySerializer(alerts_body, data=request.data)
+#
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_200_OK)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+#
+#     def delete(self, request, alerts_body_id):
+#         alerts_body = self.get_object(pk=alerts_body_id)
+#         alerts_body.delete()
+#         return Response(status=status.HTTP_204_NO_CONTENT)
+#
+#
+# #---------------------------

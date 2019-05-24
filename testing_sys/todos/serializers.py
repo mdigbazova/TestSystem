@@ -11,7 +11,7 @@ class TodoSerializer(serializers.ModelSerializer):
     The source argument used here controls which attribute is used to populate a field and can 
     point to any attribute on the serialized instance.
     """
-    highlight = serializers.HyperlinkedIdentityField(view_name='todo-highlight', format='html')
+    highlight = serializers.HyperlinkedIdentityField(view_name='TodoHighlight', format='html')#todo - highlight
 
     class Meta:
         model = Todo
