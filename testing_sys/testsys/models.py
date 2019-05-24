@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from phonenumber_field.modelfields import PhoneNumberField
-from django.core.validators import RegexValidator
 from enum import Enum
 from model_utils import Choices
 from django.utils import timezone
@@ -94,7 +93,9 @@ class Account (models.Model):
     accountid = models.CharField (max_length=50, verbose_name="Account ID") # "132"
     RemoteAccountID = models.CharField (max_length=50, verbose_name="Remote Account ID") # "1344"
     RemoteWebServiceHost = models.CharField (max_length=100, verbose_name="Remote WebService Host")  # "breck-alerts-api-au.system-monitor.com"
-    remoteserviceid = models.CharField (max_length=50, verbose_name="Remote Service ID") #
+    remoteserviceid = models.CharField (max_length=50, verbose_name="Remote Service ID")
+    owner = models.ForeignKey('auth.User', related_name='accounts', on_delete=models.CASCADE,
+          null=True, default=User)  # related_name creates a reverse relationship
 
     def __str__(self):
         return f'Account ID = {self.accountid}, Remote Account ID = {self.RemoteAccountID}, Remote WebService Host = {self.RemoteWebServiceHost}'
@@ -110,6 +111,8 @@ class Agent (models.Model):
     currentdefinitionsversion = models.CharField (max_length=10, null=True, blank=True, default="", verbose_name="Current Definitions Version")  # ""
     currentdefinitionsdate = models.DateTimeField(verbose_name="Current Definitions Date", default=timezone.now(), null=True)  # "2016-08-08 11:35:52" DateField
     sdkproductversion = models.CharField(max_length=20, verbose_name="SDK Product Version")  # "5.3.28.761"
+    owner = models.ForeignKey('auth.User', related_name='agents', on_delete=models.CASCADE,
+            null=True, default=User)  # related_name creates a reverse relationship
 
     def __str__(self):
         return f'Agent ID = {self.agentid}, Agent Version = {self.agentversion}, Agent State Name = {self.get_agentstatename_display()}'
@@ -129,6 +132,8 @@ class AlertsBody (models.Model):
     rm_region = models.CharField(max_length=15, verbose_name="Remote Region")  # "rm_region": "hdog_aus",
     account = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='account_to_alerts_body', verbose_name="Object Account")
     agent = models.ForeignKey(Agent, on_delete=models.CASCADE, related_name='agent_to_alerts_body', verbose_name="Object Agent")
+    owner = models.ForeignKey('auth.User', related_name='alerts_bodies', on_delete=models.CASCADE,
+                null=True, default=User)  # related_name creates a reverse relationship
 
     def __str__(self):
         return f'Alert ID = {self.alert_id}; Alert State = {self.alertstate}; External Service ID = {self.external_service_id}; Region = {self.rm_region}'
@@ -136,8 +141,8 @@ class AlertsBody (models.Model):
 
 
 class Comment(models.Model):
-    #author = models.CharField(max_length=200, default='Anonymous')
-    author = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='authors', verbose_name="Author")
+    #author = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='authors', verbose_name="Author")
+    author = models.ForeignKey('auth.User', on_delete=models.CASCADE, related_name='authors', verbose_name="Author", default=User)
     comment = models.TextField(verbose_name="Comment")
     alerts_body = models.ForeignKey(AlertsBody, on_delete=models.CASCADE, related_name='comments', verbose_name="Alerts Body")
     likes = models.PositiveIntegerField(null=True, default=0, verbose_name="Likes")

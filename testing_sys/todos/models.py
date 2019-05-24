@@ -7,7 +7,7 @@ from pygments.formatters.html import HtmlFormatter # for HTML representation of 
 from pygments.lexers import get_all_lexers, get_lexer_by_name
 from pygments.styles import get_all_styles
 from multiselectfield import MultiSelectField
-from datetime import date
+from django.contrib.auth.models import User
 
 #----------------------
 
@@ -36,7 +36,7 @@ class Todo(models.Model):
     code = models.TextField(blank=True)
     linenos = models.BooleanField(default=True)
     style = models.CharField(choices=STYLE_CHOICES, default='solarized-light', max_length=100)
-    owner = models.ForeignKey('auth.User', related_name='todos', on_delete=models.CASCADE, null=True) # related_name creates a reverse relationship
+    owner = models.ForeignKey('auth.User', related_name='todos', on_delete=models.CASCADE, null=True, default=User) # related_name creates a reverse relationship
     highlighted = models.TextField(blank=True, default='')
 
     """
