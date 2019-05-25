@@ -109,7 +109,7 @@ class Agent (models.Model):
     agentversion = models.CharField (max_length=20, verbose_name="Agent Version")  # "29.0.0.1009"
     agentstatename = models.CharField (max_length=1, choices=AllChoices.choices(AgentStateType), verbose_name="Agent State Name")
     currentdefinitionsversion = models.CharField (max_length=10, null=True, blank=True, default="", verbose_name="Current Definitions Version")  # ""
-    currentdefinitionsdate = models.DateTimeField(verbose_name="Current Definitions Date", default=timezone.now(), blank=True, null=True)  # "2016-08-08 11:35:52" DateField
+    currentdefinitionsdate = models.DateField(verbose_name="Current Definitions Date", auto_now=True, blank=True, null=True)  # "2016-08-08 11:35:52" DateField
     sdkproductversion = models.CharField(max_length=20, verbose_name="SDK Product Version")  # "5.3.28.761"
     owner = models.ForeignKey('auth.User', related_name='agents', on_delete=models.CASCADE,
             null=True)  # related_name creates a reverse relationship
@@ -124,7 +124,7 @@ class AlertsBody (models.Model):
         verbose_name = 'Alerts Body'
         verbose_name_plural = 'Alerts Bodies'
 
-    createdat = models.DateTimeField(verbose_name="Creation Date", default=timezone.now(), blank=True)  # "2016-08-06 07:45:24" DateField, auto_now_add=True,
+    createdat = models.DateField(verbose_name="Creation Date", auto_now=True, blank=True)  # "2016-08-06 07:45:24" DateField, auto_now_add=True,
     alert_id = models.CharField (max_length=80, verbose_name="Alert ID")  # "e68b323d-8ef4-4f77-a7be-d23c0932b10b"
     alerttimestamp = models.DateTimeField(verbose_name="Alert Timestamp", default=timezone.now(), blank=True, null=True)  # "2016-08-06 07:45:24",DateField
     alertstate = models.CharField (max_length=1, choices=AllChoices.choices(AlertState), verbose_name="Alert State")

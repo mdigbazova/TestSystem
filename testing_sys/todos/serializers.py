@@ -6,6 +6,7 @@ from .models import Todo, LANGUAGE_CHOICES, STYLE_CHOICES, STATE_CHOICES
 
 # relationships between entities -> to use hyperlinks
 class TodoSerializer(serializers.ModelSerializer):
+    #import pdb; pdb.set_trace ()
     owner = serializers.ReadOnlyField(source='owner.username')
     """
     The source argument used here controls which attribute is used to populate a field and can 

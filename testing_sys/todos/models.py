@@ -29,7 +29,7 @@ STYLE_CHOICES = sorted((item, item) for item in get_all_styles())
 class Todo(models.Model):
     title = models.CharField(max_length=200, blank=True)
     description = models.TextField(blank=True)
-    created_date = models.DateField(default=timezone.now(), blank=True)
+    created_date = models.DateField(auto_now=True)
     state = MultiSelectField(choices=STATE_CHOICES, default=1)
     end_date = models.DateField(null=True, blank=True) # auto_now=True,
     language = models.CharField(choices=LANGUAGE_CHOICES, default='python', max_length=100)
