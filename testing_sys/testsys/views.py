@@ -1,18 +1,17 @@
-from django.shortcuts import redirect
 from django.contrib.auth.models import User
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status, permissions, exceptions
+from rest_framework import status, permissions
 from rest_framework.decorators import api_view
 from rest_framework.reverse import reverse
-from rest_framework import generics, renderers
+from rest_framework import generics
 
 from . models import AlertsBody, Account, Agent, Profile, Comment
-from . serializers import UserCreateSerializer, AlertsBodySerializer, AccountSerializer, AgentSerializer, ProfileSerializer, CommentSerializer, OwnerSerializer
+from . serializers import UserCreateSerializer, AlertsBodySerializer, AccountSerializer, AgentSerializer, ProfileSerializer, CommentSerializer
 from . serializers import AccountCreateSerializer, AgentCreateSerializer, AlertsBodyCreateSerializer
 from . permissions import IsOwnerOrReadOnly
-from . method_serializer_view import MethodSerializerView
+from .method_serializer_view import MethodSerializerView
 
 #------------------------
 

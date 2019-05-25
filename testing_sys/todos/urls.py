@@ -8,10 +8,10 @@ schema_view = get_schema_view(title='Pastebin API')
 urlpatterns = [
     path('schema/', schema_view),
     path('todos_list/', views.TodosList.as_view(), name="todos-list"),
-    path('todo/<int:pk>/', views.TodoDetail.as_view(), name="todo-detail"),
-    path('todo/<int:pk>/highlight/', views.TodoHighlight.as_view(), name='todo-highlight'),
-    path('users/', views.UserList.as_view (), name="user-list"),
-    path('user/<int:pk>/', views.UserDetail.as_view (), name="user-detail"),
+    path('todo/<pk>/', views.TodosDetail.as_view(), name="todos-detail"),
+    path('todo/<pk>/highlight/', views.TodoDetail.as_view(), name='todo-detail'),
+    path('users/', views.UserList.as_view(), name="user-list"),
+    path('user/<pk>/', views.UserDetail.as_view (), name="user-detail"),
     path('', views.api_root),
 ]
 
