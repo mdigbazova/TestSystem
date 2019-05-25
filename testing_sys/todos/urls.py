@@ -1,6 +1,7 @@
 from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
 from rest_framework.schemas import get_schema_view
+
 from . import views
 
 schema_view = get_schema_view(title='Pastebin API')

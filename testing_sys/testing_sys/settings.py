@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'model_utils',
     #'django_pygments',
     'multiselectfield',
+    'rest_framework_swagger',
 
     'testsys',
     'todos',

@@ -1,15 +1,16 @@
 from django.urls import path, re_path, include
 from rest_framework.urlpatterns import format_suffix_patterns
+from rest_framework.schemas import get_schema_view
 
 from . import views
-from rest_framework.schemas import get_schema_view
-#from . views import RedirectToPage
 
-schema_view = get_schema_view(title='Pastebin API')
+from rest_framework_swagger.views import get_swagger_view
+
+schema_view = get_swagger_view(title='Pastebin API')
+#schema_view = get_schema_view(title='Pastebin API')
 
 urlpatterns = [
-    path('schema/', schema_view),
-    #path('rest-auth/', include('rest_auth.urls')), # Authentications
+    re_path('^schema/', schema_view),
     re_path('^register/', views.RegisterUser.as_view(), name='register'), #register functionality
     re_path('^alerts-bodies/$', views.AlertsBodiesList.as_view(), name="alerts-bodies"),
     re_path('^accounts/$', views.AccountsList.as_view(), name="accounts"),

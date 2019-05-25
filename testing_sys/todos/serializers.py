@@ -6,16 +6,11 @@ from .models import Todo, LANGUAGE_CHOICES, STYLE_CHOICES, STATE_CHOICES
 
 # relationships between entities -> to use hyperlinks
 class TodoSerializer(serializers.ModelSerializer):
-    #owner = serializers.ReadOnlyField(source='owner.username')
-    """
-    The source argument used here controls which attribute is used to populate a field and can 
-    point to any attribute on the serialized instance.
-    """
     highlight = serializers.HyperlinkedIdentityField(view_name='todo-detail', format='html')#
 
     class Meta:
         model = Todo
-        fields = ('url', 'id', 'title', 'created_date', 'description', 'state', 'language', 'code', 'linenos', 'style', 'highlight', 'owner') #
+        fields = ('url', 'id', 'title', 'created_date', 'end_date', 'description', 'state', 'language', 'code', 'linenos', 'style', 'highlight', 'owner') #
         #read_only_fields = ('highlighted',) -> done in admin.py
 
 
@@ -26,12 +21,13 @@ class TodoCreateSerializer(serializers.ModelSerializer):
     The source argument used here controls which attribute is used to populate a field and can 
     point to any attribute on the serialized instance.
     """
+
     highlight = serializers.HyperlinkedIdentityField(view_name='todo-detail', format='html')#
 
     class Meta:
         model = Todo
-        fields = ('url', 'id', 'title', 'created_date', 'description', 'state', 'language', 'code', 'linenos', 'style', 'highlight', 'owner') #
-        #read_only_fields = ('highlighted',) -> done in admin.py
+        fields = ('title', 'created_date', 'end_date', 'description', 'state', 'language', 'code', 'linenos', 'style', 'highlight', 'owner') #
+        #read_only_fields = ('highlighted',) -> done in admin.py 'id',
 
     """
     To automatically associate the logged-in user with created todo - by overriding 
@@ -39,14 +35,13 @@ class TodoCreateSerializer(serializers.ModelSerializer):
     """
     def create(self, validated_data): #return ExampleModel.objects.create(**validated_data)
         #import pdb; pdb.set_trace()
+        #validated_data['state'] = self.data['state']
         validated_data['owner'] = self.context['request'].user
         return super(TodoCreateSerializer, self).create(validated_data)
 
 
 
 class UserSerializer(serializers.ModelSerializer):
-    #todos = serializers.PrimaryKeyRelatedField(many=True, queryset=Todo.objects.all())
-    #import pdb; pdb.set_trace ()
     todos = serializers.HyperlinkedRelatedField(many=True, view_name='todos-detail', read_only=True)
 
     class Meta:
