@@ -6,9 +6,9 @@ Second purpose: to have TODOs online
 
 
 Getting Started and Installation:
-    1. Install Python 3
-    2. Create Venv, activate it
-    3. Install Django
+    1. Install Python3;
+    2. Create Venv, activate it;
+    3. Install Django;
     4. Install all the rest Django requirements
     
     
