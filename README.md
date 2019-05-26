@@ -4,10 +4,12 @@ Project Test System
 Purpose: to help testing Cascade and simulate getting data from AWS Kinesis Stream
 Second purpose: to have TODOs online 
 
-Needed software: please read Requirements.txt
 
-Installation:
-    1. Venv
-    2. Install Django
-    3. Install all the rest Django requirements
+Getting Started and Installation:
+    1. Install Python 3
+    2. Create Venv, activate it
+    3. Install Django
+    4. Install all the rest Django requirements
     
+    
+Needed additional Django apps: please read Requirements.txt    
