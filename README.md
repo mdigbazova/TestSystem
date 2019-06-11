@@ -1,5 +1,5 @@
 # TestSystem
-Project Test System
+Django REST Project "Test System"
 
 Purpose: to help testing Cascade and simulate getting data from AWS Kinesis Stream
 
